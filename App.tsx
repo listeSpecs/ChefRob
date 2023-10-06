@@ -1,24 +1,25 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from "expo-status-bar";
 import {
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
   useColorScheme,
 } from "react-native";
-import Routes from './src/navigation';
+import "react-native-gesture-handler";
+import Routes from "./src/navigation";
+import { StatusBar } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function App() {
   const isDarkMode = useColorScheme() === "dark";
 
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
+  };
+
   return (
-    <SafeAreaView>
-      <StatusBar
-        backgroundColor={isDarkMode ? "light-content" : "dark-content"}
-      />
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar barStyle={isDarkMode ? "dark-content" : "light-content"} />
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}

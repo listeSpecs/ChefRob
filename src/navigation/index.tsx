@@ -1,8 +1,8 @@
 import React from "react";
-import DrawerRoutes from "./drawer.routes";
+import TabRoutes from "./tab.routes";
 
-const Routes = () => {
-  return <DrawerRoutes />;
+const Routes: React.FC = () => {
+  return <TabRoutes />;
 };
 
 export default Routes;
