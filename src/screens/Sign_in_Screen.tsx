@@ -5,7 +5,7 @@ import projectIcon from "../../assets/B.png";
 const TelaAcesso = () => {
   return (
     <View style={styles.container}>
-      <Image source={projectIcon} style={styles.projectIcon} />
+      
       <Text style={styles.loginTitle}>Chef Rob</Text>
       <TouchableOpacity style={styles.loginButton}>
         <Text style={styles.buttonText}>Login</Text>
