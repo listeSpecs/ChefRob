@@ -8,6 +8,9 @@ import "react-native-gesture-handler";
 import Routes from "./src/navigation";
 import { StatusBar } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { NativeBaseProvider } from "native-base";
+import { theme } from "./src/style/theme";
+import { StoreProvider } from "./src/store";
 
 export default function App() {
   const isDarkMode = useColorScheme() === "dark";
@@ -19,14 +22,18 @@ export default function App() {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? "dark-content" : "light-content"} />
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        enabled
-      >
-        <Routes />
-      </KeyboardAvoidingView>
+      <StoreProvider>
+        <StatusBar barStyle={isDarkMode ? "dark-content" : "light-content"} />
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          enabled
+        >
+          <NativeBaseProvider theme={theme}>
+            <Routes />
+          </NativeBaseProvider>
+        </KeyboardAvoidingView>
+      </StoreProvider>
     </SafeAreaView>
   );
 }
