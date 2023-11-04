@@ -8,7 +8,7 @@ interface Props {
 
 //Temporário
 const signIn = async () => {
-  await AsyncStorage.setItem('@chefRob:token', 'teste')
+  setStore(true);
 }
 
 const LoginForm = ({ clearStep }: Props) => {
