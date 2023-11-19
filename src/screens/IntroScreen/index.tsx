@@ -1,34 +1,37 @@
 import React from "react";
+import { ImageBackground, StyleSheet } from "react-native";
 import { Box, Button } from "native-base";
 
 const IntroScreen = ({ navigation }: any) => {
   return (
-    <Box
-      py={10}
-      width="100%"
-      height="100%"
-      bgColor="black"
-      justifyContent="space-between"
+    <ImageBackground
+      source={require("../../../assets/images/intro-background.png")}
+      resizeMode="cover"
+      style={styles.image}
     >
       <Box />
       <Box>
         <Box
           _text={{
             textAlign: "center",
-            fontSize: "5xl",
+            fontSize: "6xl",
             fontWeight: "bold",
             color: "white",
+            lineHeight: 60,
           }}
-          pb={5}
         >
           Vamos Cozinhar
         </Box>
-        <Box _text={{ textAlign: "center", color: "white" }} pb={10}>
+        <Box
+          _text={{ textAlign: "center", fontWeight: "bold", fontSize: "xl" }}
+          pb={5}
+        >
           Receitas sem desperdícios criadas por IA
         </Box>
-        <Box alignItems="center">
+        <Box alignItems="center" mb={5}>
           <Button
-            bgColor="primary.100"
+            bgColor="white"
+            _text={{ color: "primary.100", fontWeight: "bold" }}
             p={4}
             size="lg"
             borderRadius={10}
@@ -38,8 +41,15 @@ const IntroScreen = ({ navigation }: any) => {
           </Button>
         </Box>
       </Box>
-    </Box>
+    </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+});
 
 export default IntroScreen;

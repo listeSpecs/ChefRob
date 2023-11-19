@@ -10,13 +10,14 @@ const ForgotPasswordForm = ({ clearStep }: Props) => {
     <Stack space={6} width="70%" mx="auto">
       <Input
         variant="outline"
+        borderColor="secondary.100"
         placeholder="E-mail"
         InputLeftElement={
           <Icon
             as={<MaterialIcons name="person" />}
             size={5}
             ml="2"
-            color="muted.400"
+            color="primary.100"
           />
         }
       />
@@ -32,11 +33,13 @@ const ForgotPasswordForm = ({ clearStep }: Props) => {
           Recuperar
         </Button>
       </Center>
-      <Link onPress={() => clearStep()}>
-        <Text color="primary.100" bold>
-          &#60; Voltar
-        </Text>
-      </Link>
+      <Center>
+        <Link onPress={() => clearStep()}>
+          <Text color="primary.100">
+            Voltar para o login
+          </Text>
+        </Link>
+      </Center>
     </Stack>
   );
 };
